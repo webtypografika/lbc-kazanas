@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Luxury Building Constructions & Renovations",
+    "subtitle": "We create spaces that inspire. From design to execution, every detail matters.",
+    "cta": "View Our Projects"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "LBC (Luxury Building Constructions) specializes in luxury constructions and renovations. With a passion for excellence and attention to detail, we transform every space into a masterpiece.",
+    "experience": "Years of Experience",
+    "completedProjects": "Completed Projects",
+    "satisfaction": "Client Satisfaction"
+  },
+  "services": {
+    "title": "Our Services",
+    "construction": "Construction",
+    "constructionDesc": "Luxury residences and high-specification commercial buildings.",
+    "renovation": "Renovations",
+    "renovationDesc": "Complete space renovations with modern design and quality materials.",
+    "interior": "Interior Design",
+    "interiorDesc": "Interior design that combines aesthetics and functionality.",
+    "consulting": "Consulting",
+    "consultingDesc": "Professional guidance at every stage of your project."
+  },
+  "featured": {
+    "title": "Featured Projects",
+    "viewAll": "View All Projects"
+  },
+  "cta": {
+    "title": "Ready to start?",
+    "subtitle": "Contact us to discuss your next project.",
+    "button": "Contact Us"
+  },
+  "projects": {
+    "title": "Our Projects",
+    "subtitle": "Discover our portfolio of luxury constructions and renovations.",
+    "all": "All",
+    "location": "Location",
+    "area": "Area",
+    "year": "Year",
+    "category": "Category",
+    "noProjects": "No projects found."
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "We'd love to hear about your project.",
+    "name": "Full Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "send": "Send",
+    "sending": "Sending...",
+    "success": "Your message was sent successfully!",
+    "error": "Something went wrong. Please try again.",
+    "info": {
+      "title": "Contact Information",
+      "address": "Address",
+      "addressValue": "Nicosia, Cyprus",
+      "phone": "Phone",
+      "phoneValue": "+357 99 123 456",
+      "email": "Email",
+      "emailValue": "info@lbc-constructions.com"
+    }
+  },
+  "footer": {
+    "description": "Luxury building constructions and high-specification renovations.",
+    "links": "Links",
+    "contactTitle": "Contact",
+    "rights": "All rights reserved."
+  }
+}

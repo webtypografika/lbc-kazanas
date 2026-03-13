@@ -32,6 +32,13 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
+
+# SQLite database (legacy)
+/data/
+
+# Uploaded images (legacy, now on Vercel Blob)
+/public/uploads/
 
 # vercel
 .vercel
