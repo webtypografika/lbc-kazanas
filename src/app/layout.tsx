@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 const cormorant = Cormorant_Garamond({
-  subsets: ["latin", "cyrillic"],
+  subsets: ["latin", "cyrillic", "greek"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-cormorant",
   display: "swap",
@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html suppressHydrationWarning>
+    <html lang="el" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${cormorant.variable} antialiased`}
         style={{ fontFamily: "var(--font-body)" }}
