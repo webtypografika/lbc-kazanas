@@ -81,12 +81,12 @@ export default function ProjectForm({ categories, project, existingImages = [] }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-4xl space-y-8">
+    <form onSubmit={handleSubmit} className="max-w-4xl space-y-10">
       {/* Basic Info */}
-      <div className="bg-white border border-neutral-200 rounded-[2px] p-6 space-y-5">
+      <div className="bg-white border border-neutral-200 rounded-[2px] p-8 space-y-6">
         <h2 className="text-lg font-semibold text-neutral-800">Project Details</h2>
 
-        <div className="grid md:grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-2 gap-6">
           <Input
             label="Title (Greek)"
             name="title_el"
@@ -105,7 +105,7 @@ export default function ProjectForm({ categories, project, existingImages = [] }
           />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-2 gap-6">
           <Textarea
             label="Description (Greek)"
             name="description_el"
@@ -126,10 +126,10 @@ export default function ProjectForm({ categories, project, existingImages = [] }
       </div>
 
       {/* Meta */}
-      <div className="bg-white border border-neutral-200 rounded-[2px] p-6 space-y-5">
+      <div className="bg-white border border-neutral-200 rounded-[2px] p-8 space-y-6">
         <h2 className="text-lg font-semibold text-neutral-800">Details</h2>
 
-        <div className="grid md:grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-2 gap-6">
           <div className="space-y-1.5">
             <label className="block text-sm font-medium text-neutral-700">Category</label>
             <select
@@ -154,7 +154,7 @@ export default function ProjectForm({ categories, project, existingImages = [] }
           />
         </div>
 
-        <div className="grid md:grid-cols-3 gap-5">
+        <div className="grid md:grid-cols-3 gap-6">
           <Input
             label="Area"
             name="area"
@@ -197,8 +197,8 @@ export default function ProjectForm({ categories, project, existingImages = [] }
 
       {/* Images (only for existing projects) */}
       {isEdit && (
-        <div className="bg-white border border-neutral-200 rounded-[2px] p-6">
-          <h2 className="text-lg font-semibold text-neutral-800 mb-4">Images</h2>
+        <div className="bg-white border border-neutral-200 rounded-[2px] p-8">
+          <h2 className="text-lg font-semibold text-neutral-800 mb-6">Images</h2>
           <ImageUploader projectId={project.id} images={existingImages} />
         </div>
       )}

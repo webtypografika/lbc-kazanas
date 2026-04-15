@@ -15,7 +15,7 @@ export default async function AdminCategoriesPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-neutral-800 mb-8">Categories</h1>
+      <h1 className="text-2xl font-bold text-neutral-800 mb-10">Categories</h1>
       <CategoriesManager categories={categoriesWithCounts} />
     </div>
   );

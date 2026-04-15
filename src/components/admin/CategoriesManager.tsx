@@ -56,13 +56,13 @@ export default function CategoriesManager({ categories }: { categories: Category
   };
 
   return (
-    <div className="max-w-2xl space-y-6">
+    <div className="max-w-2xl space-y-8">
       {/* Add/Edit form */}
-      <form onSubmit={handleSubmit} className="bg-white border border-neutral-200 rounded-[2px] p-6 space-y-4">
+      <form onSubmit={handleSubmit} className="bg-white border border-neutral-200 rounded-[2px] p-8 space-y-5">
         <h2 className="text-sm font-medium text-neutral-800">
           {editingId ? "Edit Category" : "Add New Category"}
         </h2>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-6">
           <Input
             placeholder="Name (Greek)"
             value={form.name_el}

@@ -19,7 +19,7 @@ export default function AdminSidebar({ username }: { username: string }) {
   };
 
   return (
-    <aside className="fixed left-0 top-0 bottom-0 w-64 bg-brand-800 text-white flex flex-col">
+    <aside className="fixed left-0 top-0 bottom-0 w-64 bg-brand-800 text-white flex flex-col z-50">
       <div className="p-6 border-b border-brand-700">
         <Link href="/admin" className="font-[family-name:var(--font-heading)] text-2xl font-bold">
           LBC

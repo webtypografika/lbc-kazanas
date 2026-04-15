@@ -26,7 +26,7 @@ export default async function AdminDashboardPage() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center justify-between mb-10">
         <h1 className="text-2xl font-bold text-neutral-800">Dashboard</h1>
         <Link
           href="/admin/projects/new"
@@ -37,7 +37,7 @@ export default async function AdminDashboardPage() {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
         {stats.map((stat) => (
           <div key={stat.label} className={`${stat.color} p-6 rounded-[2px]`}>
             <div className="text-3xl font-bold font-[family-name:var(--font-heading)]">{stat.value}</div>
