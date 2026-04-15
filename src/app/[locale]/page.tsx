@@ -1,9 +1,15 @@
-import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import FeaturedProjects from "@/components/public/FeaturedProjects";
+import { getSiteContent } from "@/lib/site-content";
+import { useTranslations } from "next-intl";
+import { getLocale } from "next-intl/server";
 
-export default function HomePage() {
-  const t = useTranslations();
+export default async function HomePage() {
+  const locale = await getLocale();
+  const hero = await getSiteContent("hero", locale);
+  const about = await getSiteContent("about", locale);
+  const services = await getSiteContent("services", locale);
+  const cta = await getSiteContent("cta", locale);
 
   return (
     <>
@@ -63,7 +69,7 @@ export default function HomePage() {
               marginBottom: "2rem",
             }}
           >
-            {t("hero.title")}
+            {hero.title}
           </h1>
 
           <p
@@ -75,7 +81,7 @@ export default function HomePage() {
               lineHeight: 1.7,
             }}
           >
-            {t("hero.subtitle")}
+            {hero.subtitle}
           </p>
 
           <Link
@@ -98,7 +104,7 @@ export default function HomePage() {
             }}
             className="hover:bg-white hover:text-brand-800"
           >
-            {t("hero.cta")}
+            {hero.cta}
             <svg
               style={{ width: "16px", height: "16px" }}
               fill="none"
@@ -147,7 +153,7 @@ export default function HomePage() {
                   fontWeight: 500,
                 }}
               >
-                {t("about.title")}
+                {about.title}
               </span>
               <div
                 style={{
@@ -167,7 +173,7 @@ export default function HomePage() {
                   marginBottom: "1.5rem",
                 }}
               >
-                {t("about.title")}
+                {about.title}
               </h2>
               <p
                 style={{
@@ -177,15 +183,15 @@ export default function HomePage() {
                   marginBottom: "3rem",
                 }}
               >
-                {t("about.description")}
+                {about.description}
               </p>
 
               {/* Stats */}
               <div className="grid grid-cols-3" style={{ gap: "2rem" }}>
                 {[
-                  { num: "15+", label: t("about.experience") },
-                  { num: "200+", label: t("about.completedProjects") },
-                  { num: "100%", label: t("about.satisfaction") },
+                  { num: about.stat_experience, label: about.stat_experience_label },
+                  { num: about.stat_projects, label: about.stat_projects_label },
+                  { num: about.stat_satisfaction, label: about.stat_satisfaction_label },
                 ].map((stat, i) => (
                   <div key={i}>
                     <div
@@ -282,7 +288,7 @@ export default function HomePage() {
                 fontWeight: 500,
               }}
             >
-              {t("services.title")}
+              {services.title}
             </span>
             <div
               style={{
@@ -300,7 +306,7 @@ export default function HomePage() {
                 color: "#0a2e3c",
               }}
             >
-              {t("services.title")}
+              {services.title}
             </h2>
           </div>
 
@@ -308,23 +314,23 @@ export default function HomePage() {
             {[
               {
                 icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
-                title: t("services.construction"),
-                desc: t("services.constructionDesc"),
+                title: services.construction,
+                desc: services.constructionDesc,
               },
               {
                 icon: "M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z",
-                title: t("services.renovation"),
-                desc: t("services.renovationDesc"),
+                title: services.renovation,
+                desc: services.renovationDesc,
               },
               {
                 icon: "M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01",
-                title: t("services.interior"),
-                desc: t("services.interiorDesc"),
+                title: services.interior,
+                desc: services.interiorDesc,
               },
               {
                 icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01",
-                title: t("services.consulting"),
-                desc: t("services.consultingDesc"),
+                title: services.consulting,
+                desc: services.consultingDesc,
               },
             ].map((service, i) => (
               <div
@@ -385,77 +391,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Projects */}
-      <section style={{ padding: "6rem 0" }}>
-        <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 1.5rem" }}>
-          <div
-            className="flex flex-col sm:flex-row sm:items-end justify-between"
-            style={{ marginBottom: "3rem" }}
-          >
-            <div>
-              <span
-                style={{
-                  fontSize: "11px",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.3em",
-                  color: "#c9962e",
-                  fontWeight: 500,
-                }}
-              >
-                Portfolio
-              </span>
-              <div
-                style={{
-                  width: "40px",
-                  height: "1px",
-                  backgroundColor: "#e5b13f",
-                  margin: "1rem 0 2rem",
-                }}
-              />
-              <h2
-                style={{
-                  fontFamily: "var(--font-heading)",
-                  fontSize: "clamp(2rem, 4vw, 3rem)",
-                  fontWeight: 700,
-                  color: "#0a2e3c",
-                }}
-              >
-                {t("featured.title")}
-              </h2>
-            </div>
-            <Link
-              href="/projects"
-              className="group"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                fontSize: "12px",
-                color: "#0a2e3c",
-                textTransform: "uppercase",
-                letterSpacing: "0.15em",
-                marginTop: "1.5rem",
-              }}
-            >
-              {t("featured.viewAll")}
-              <svg
-                className="group-hover:translate-x-1 transition-transform"
-                style={{ width: "16px", height: "16px" }}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </Link>
-          </div>
-          <FeaturedProjects />
-        </div>
-      </section>
+      <FeaturedProjectsSection locale={locale} />
 
       {/* CTA */}
       <section className="relative overflow-hidden" style={{ padding: "6rem 0" }}>
@@ -499,10 +435,10 @@ export default function HomePage() {
               marginBottom: "1.25rem",
             }}
           >
-            {t("cta.title")}
+            {cta.title}
           </h2>
           <p style={{ color: "rgba(255,255,255,0.5)", marginBottom: "3rem", fontSize: "1rem" }}>
-            {t("cta.subtitle")}
+            {cta.subtitle}
           </p>
           <Link
             href="/contact"
@@ -524,7 +460,7 @@ export default function HomePage() {
               transition: "all 0.5s",
             }}
           >
-            {t("cta.button")}
+            {cta.button}
             <svg
               style={{ width: "16px", height: "16px" }}
               fill="none"
@@ -542,5 +478,84 @@ export default function HomePage() {
         </div>
       </section>
     </>
+  );
+}
+
+// Separate client-compatible section for featured projects that uses translations
+function FeaturedProjectsSection({ locale }: { locale: string }) {
+  // This is a server component so we can use getTranslations pattern
+  // But since we need useTranslations which is sync, we'll inline it
+  return (
+    <section style={{ padding: "6rem 0" }}>
+      <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 1.5rem" }}>
+        <div
+          className="flex flex-col sm:flex-row sm:items-end justify-between"
+          style={{ marginBottom: "3rem" }}
+        >
+          <div>
+            <span
+              style={{
+                fontSize: "11px",
+                textTransform: "uppercase",
+                letterSpacing: "0.3em",
+                color: "#c9962e",
+                fontWeight: 500,
+              }}
+            >
+              Portfolio
+            </span>
+            <div
+              style={{
+                width: "40px",
+                height: "1px",
+                backgroundColor: "#e5b13f",
+                margin: "1rem 0 2rem",
+              }}
+            />
+            <h2
+              style={{
+                fontFamily: "var(--font-heading)",
+                fontSize: "clamp(2rem, 4vw, 3rem)",
+                fontWeight: 700,
+                color: "#0a2e3c",
+              }}
+            >
+              {locale === "el" ? "Επιλεγμένα Έργα" : "Featured Projects"}
+            </h2>
+          </div>
+          <Link
+            href="/projects"
+            className="group"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              fontSize: "12px",
+              color: "#0a2e3c",
+              textTransform: "uppercase",
+              letterSpacing: "0.15em",
+              marginTop: "1.5rem",
+            }}
+          >
+            {locale === "el" ? "Δείτε Όλα τα Έργα" : "View All Projects"}
+            <svg
+              className="group-hover:translate-x-1 transition-transform"
+              style={{ width: "16px", height: "16px" }}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </Link>
+        </div>
+        <FeaturedProjects />
+      </div>
+    </section>
   );
 }
