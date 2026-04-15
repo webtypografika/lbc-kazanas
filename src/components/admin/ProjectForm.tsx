@@ -86,7 +86,7 @@ export default function ProjectForm({ categories, project, existingImages = [] }
       <div className="bg-white border border-neutral-200 rounded-[2px] p-8 space-y-6">
         <h2 className="text-lg font-semibold text-neutral-800">Project Details</h2>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid lg:grid-cols-2 gap-6">
           <Input
             label="Title (Greek)"
             name="title_el"
@@ -105,7 +105,7 @@ export default function ProjectForm({ categories, project, existingImages = [] }
           />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid lg:grid-cols-2 gap-6">
           <Textarea
             label="Description (Greek)"
             name="description_el"
@@ -129,7 +129,7 @@ export default function ProjectForm({ categories, project, existingImages = [] }
       <div className="bg-white border border-neutral-200 rounded-[2px] p-8 space-y-6">
         <h2 className="text-lg font-semibold text-neutral-800">Details</h2>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid lg:grid-cols-2 gap-6">
           <div className="space-y-1.5">
             <label className="block text-sm font-medium text-neutral-700">Category</label>
             <select
@@ -154,7 +154,7 @@ export default function ProjectForm({ categories, project, existingImages = [] }
           />
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-3 gap-6">
           <Input
             label="Area"
             name="area"
