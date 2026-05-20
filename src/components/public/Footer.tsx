@@ -1,12 +1,11 @@
-import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { getSiteContent } from "@/lib/site-content";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 export default async function Footer() {
   const locale = await getLocale();
-  const nav = useTranslations("nav");
-  const t = useTranslations("footer");
+  const nav = await getTranslations("nav");
+  const t = await getTranslations("footer");
 
   const footer = await getSiteContent("footer", locale);
   const contactInfo = await getSiteContent("contact_info", locale);

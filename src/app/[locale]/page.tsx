@@ -1,7 +1,6 @@
 import { Link } from "@/i18n/navigation";
 import FeaturedProjects from "@/components/public/FeaturedProjects";
 import { getSiteContent } from "@/lib/site-content";
-import { useTranslations } from "next-intl";
 import { getLocale } from "next-intl/server";
 
 export default async function HomePage() {
